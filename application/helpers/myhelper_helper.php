@@ -9,6 +9,15 @@ if (!function_exists('nominal')) {
     }
 }
 
+function is_logged_in_alumni()
+{
+    $ci = get_instance();
+    if ($ci->session->userdata('id_alumni') == '') {
+        redirect('home/auth');
+    }
+}
+
+
 function is_logged_in_user()
 {
     $ci = get_instance();
@@ -16,6 +25,7 @@ function is_logged_in_user()
         redirect('home/auth');
     }
 }
+
 
 function post($name)
 {
